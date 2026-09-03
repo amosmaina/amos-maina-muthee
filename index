@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amos Maina Muthee — Full-Stack Developer & Automation Specialist</title>
+<meta name="description" content="Portfolio of Amos Maina Muthee, Full-Stack Web Developer and Business Automation Specialist based in Nairobi, Kenya." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14;
+    --surface:#12161F;
+    --surface-alt:#171C27;
+    --border:#242B39;
+    --text:#E7E9EE;
+    --text-muted:#8B94A7;
+    --text-faint:#5B6478;
+    --amber:#E3A438;
+    --amber-dim:#8A6A2E;
+    --teal:#3FB6A8;
+    --teal-dim:#245E58;
+    --max:1120px;
+    --radius:6px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,14,20,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--max); margin:0 auto;
+  }
+  .nav-mark{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+    color:var(--text);
+    text-decoration:none;
+  }
+  .nav-mark span{color:var(--amber);}
+  .nav-links{
+    display:flex; gap:28px; list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--text-muted);
+    font-size:0.92rem;
+    transition:color 0.15s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--amber);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--border); color:var(--text); border-radius:4px; padding:6px 10px; font-size:1.1rem;}
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed; top:60px; left:0; right:0;
+      background:var(--surface);
+      border-bottom:1px solid var(--border);
+      flex-direction:column; gap:0;
+      max-height:0; overflow:hidden;
+      transition:max-height 0.25s ease;
+    }
+    .nav-links.open{max-height:400px;}
+    .nav-links li{border-top:1px solid var(--border);}
+    .nav-links a{display:block; padding:14px 28px;}
+    .nav-toggle{display:block;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:2px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-tag{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--teal);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .hero-tag::before{
+    content:'';
+    width:7px; height:7px; border-radius:50%;
+    background:var(--teal);
+    box-shadow:0 0 0 3px var(--teal-dim);
+  }
+  h1.hero-name{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(2.1rem, 4.4vw, 3.3rem);
+    line-height:1.08;
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+  }
+  .hero-role{
+    font-size:1.15rem;
+    color:var(--text-muted);
+    margin:0 0 22px;
+    max-width:46ch;
+  }
+  .hero-desc{
+    color:var(--text-muted);
+    max-width:56ch;
+    margin:0 0 30px;
+    font-size:0.99rem;
+  }
+  .hero-cta{
+    display:flex; gap:14px; flex-wrap:wrap;
+    margin-bottom:34px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-size:0.92rem;
+    font-weight:500;
+    transition:transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--amber);
+    color:#161200;
+  }
+  .btn-primary:hover{background:#f0b452;}
+  .btn-ghost{
+    border-color:var(--border);
+    color:var(--text);
+    background:transparent;
+  }
+  .btn-ghost:hover{border-color:var(--teal); color:var(--teal);}
+
+  .hero-contact{
+    display:flex; flex-wrap:wrap; gap:18px;
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    color:var(--text-faint);
+  }
+  .hero-contact a{text-decoration:none; color:var(--text-faint); border-bottom:1px solid transparent;}
+  .hero-contact a:hover{color:var(--teal); border-color:var(--teal);}
+
+  /* photo */
+  .photo-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    max-width:320px;
+    margin-left:auto;
+    border-radius:12px;
+    border:1px dashed var(--border);
+    background:
+      linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:24px;
+  }
+  .photo-frame .avatar-initials{
+    width:88px; height:88px; border-radius:50%;
+    background:var(--surface-alt);
+    border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display);
+    font-size:1.6rem; font-weight:600;
+    color:var(--amber);
+    margin-bottom:16px;
+  }
+  .photo-frame p{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    color:var(--text-faint);
+    margin:0;
+    line-height:1.5;
+  }
+  .photo-frame code{
+    color:var(--teal);
+    background:rgba(63,182,168,0.08);
+    padding:1px 5px;
+    border-radius:3px;
+  }
+  /* To use a real photo: replace the .avatar-initials block in the HTML with
+     <img src="assets/profile.jpg" alt="Amos Maina Muthee" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> */
+
+  /* connector flow diagram */
+  .flow-diagram{margin-top:40px;}
+  .flow-svg{width:100%; height:auto; display:block;}
+  .flow-dot{
+    animation:travel 7s linear infinite;
+    offset-rotate:0deg;
+  }
+  @keyframes travel{
+    0%{ offset-distance:0%; opacity:0;}
+    5%{opacity:1;}
+    95%{opacity:1;}
+    100%{ offset-distance:100%; opacity:0;}
+  }
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .photo-frame{margin-left:0; max-width:220px;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:64px 0;
+    border-bottom:1px solid var(--border);
+  }
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:20px;
+    margin-bottom:32px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:1.55rem;
+    font-weight:600;
+    margin:0;
+  }
+  .section-num{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--text-faint);
+  }
+  .section-lede{
+    color:var(--text-muted);
+    max-width:66ch;
+    margin:0 0 32px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-body p{color:var(--text-muted); max-width:74ch; margin:0 0 16px;}
+  .about-body p:last-child{margin-bottom:0;}
+
+  /* ---------- CHIPS / SKILLS ---------- */
+  .chip-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--text-muted);
+    border:1px solid var(--border);
+    padding:6px 12px;
+    border-radius:999px;
+    background:var(--surface);
+  }
+
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:18px;
+  }
+  .skill-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .skill-card h3{
+    font-family:var(--font-display);
+    font-size:0.98rem;
+    margin:0 0 12px;
+    color:var(--amber);
+    font-weight:600;
+  }
+  .skill-card p{
+    margin:0;
+    color:var(--text-muted);
+    font-size:0.88rem;
+    line-height:1.65;
+  }
+
+  /* ---------- PIPELINE ---------- */
+  .pipeline{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:stretch;
+    gap:0;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .pipeline-step{
+    flex:1 1 130px;
+    padding:20px 16px;
+    display:flex; flex-direction:column; gap:8px;
+    border-right:1px solid var(--border);
+    position:relative;
+  }
+  .pipeline-step:last-child{border-right:none;}
+  .pipeline-step .n{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    color:var(--teal);
+  }
+  .pipeline-step .label{
+    font-family:var(--font-display);
+    font-size:0.9rem;
+    font-weight:600;
+  }
+  @media (max-width:700px){
+    .pipeline{flex-direction:column;}
+    .pipeline-step{border-right:none; border-bottom:1px solid var(--border);}
+    .pipeline-step:last-child{border-bottom:none;}
+  }
+
+  .capability-list{
+    columns:2;
+    column-gap:32px;
+    color:var(--text-muted);
+    font-size:0.92rem;
+    padding-left:18px;
+    margin:0;
+  }
+  .capability-list li{margin-bottom:9px; break-inside:avoid;}
+  @media (max-width:700px){.capability-list{columns:1;}}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-block{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:32px;
+  }
+  .exp-meta h3{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    margin:0 0 4px;
+  }
+  .exp-meta .org{color:var(--amber); font-size:0.92rem; margin-bottom:6px;}
+  .exp-meta .dates{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--text-faint);
+  }
+  .exp-list{margin:0; padding-left:18px; color:var(--text-muted); font-size:0.93rem;}
+  .exp-list li{margin-bottom:10px;}
+  @media (max-width:700px){
+    .exp-block{grid-template-columns:1fr; gap:14px;}
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+  }
+  .project-card{
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:22px;
+    background:var(--surface);
+    display:flex; flex-direction:column; gap:10px;
+    transition:border-color 0.15s ease;
+  }
+  .project-card:hover{border-color:var(--teal-dim);}
+  .project-card h3{
+    font-family:var(--font-display);
+    font-size:1.02rem;
+    margin:0;
+    font-weight:600;
+  }
+  .project-role{
+    font-family:var(--font-mono);
+    font-size:0.74rem;
+    color:var(--teal);
+  }
+  .project-card p{
+    color:var(--text-muted);
+    font-size:0.88rem;
+    margin:0;
+    flex-grow:1;
+  }
+  .project-link{
+    font-size:0.84rem;
+    color:var(--amber);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .project-link:hover{border-color:var(--amber);}
+
+  /* ---------- STRENGTHS ---------- */
+  .strength-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:18px;
+  }
+  .strength-card h3{
+    font-size:0.95rem;
+    font-family:var(--font-display);
+    margin:0 0 8px;
+    font-weight:600;
+    color:var(--text);
+  }
+  .strength-card p{
+    color:var(--text-muted);
+    font-size:0.86rem;
+    margin:0;
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    background:var(--surface);
+    padding:26px;
+    display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  .edu-card h3{font-family:var(--font-display); margin:0 0 4px; font-size:1.05rem;}
+  .edu-card .school{color:var(--amber); font-size:0.92rem;}
+  .edu-card .year{font-family:var(--font-mono); color:var(--text-faint); font-size:0.85rem;}
+  .edu-areas{margin:14px 0 0; padding-left:18px; color:var(--text-muted); font-size:0.88rem; columns:2;}
+  @media (max-width:600px){.edu-areas{columns:1;}}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:40px;
+    display:flex; justify-content:space-between; align-items:center; gap:32px;
+    flex-wrap:wrap;
+  }
+  .contact-panel h2{
+    font-family:var(--font-display);
+    font-size:1.5rem;
+    margin:0 0 8px;
+  }
+  .contact-panel p{color:var(--text-muted); margin:0; max-width:42ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-family:var(--font-mono); font-size:0.86rem;}
+  .contact-links a{text-decoration:none; color:var(--teal);}
+  .contact-links a:hover{color:var(--amber);}
+
+  footer{
+    padding:28px 0 40px;
+    text-align:center;
+    color:var(--text-faint);
+    font-size:0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">Amos<span>.</span>Muthee</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#automation">Automation</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--border); padding-bottom:64px;">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-tag">Nairobi, Kenya · Available for work</div>
+        <h1 class="hero-name">Amos Maina Muthee</h1>
+        <p class="hero-role">Full-Stack Web Developer &amp; Business Automation Specialist</p>
+        <p class="hero-desc">
+          I design, build and connect the systems businesses run on — websites, APIs, CRMs, payments
+          and AI-assisted workflows — so that repetitive work happens automatically and teams can focus
+          on what actually needs a human.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View projects</a>
+          <a href="mailto:amosmuthee42@gmail.com" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <div class="hero-contact">
+          <a href="mailto:amosmuthee42@gmail.com">amosmuthee42@gmail.com</a>
+          <a href="tel:+254741964877">+254 741 964 877</a>
+          <a href="https://github.com/amosmaina" target="_blank" rel="noopener">github.com/amosmaina</a>
+          <a href="https://www.linkedin.com/in/amos-muthee-69683a360" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="photo-frame">
+          <!-- Replace this block with:
+               <img src="assets/profile.jpg" alt="Amos Maina Muthee" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+          -->
+          <div class="avatar-initials">AM</div>
+          <p>Profile photo goes here<br>Save your image as <code>assets/profile.jpg</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap flow-diagram">
+      <svg class="flow-svg" viewBox="0 0 900 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing a website connected through an API to a CRM, an automation engine, and AI">
+        <defs>
+          <path id="flowPath" d="M 60 45 L 840 45" />
+        </defs>
+        <line x1="60" y1="45" x2="840" y2="45" stroke="#242B39" stroke-width="1.5"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#8B94A7" text-anchor="middle">
+          <g>
+            <circle cx="60" cy="45" r="6" fill="#0B0E14" stroke="#3FB6A8" stroke-width="2"/>
+            <text x="60" y="72">Website</text>
+          </g>
+          <g>
+            <circle cx="270" cy="45" r="6" fill="#0B0E14" stroke="#3FB6A8" stroke-width="2"/>
+            <text x="270" y="72">API</text>
+          </g>
+          <g>
+            <circle cx="480" cy="45" r="6" fill="#0B0E14" stroke="#3FB6A8" stroke-width="2"/>
+            <text x="480" y="72">CRM</text>
+          </g>
+          <g>
+            <circle cx="660" cy="45" r="6" fill="#0B0E14" stroke="#3FB6A8" stroke-width="2"/>
+            <text x="660" y="72">Automation</text>
+          </g>
+          <g>
+            <circle cx="840" cy="45" r="6" fill="#0B0E14" stroke="#E3A438" stroke-width="2"/>
+            <text x="840" y="72" fill="#E3A438">AI</text>
+          </g>
+        </g>
+        <circle class="flow-dot" r="4" fill="#E3A438" style="offset-path:path('M 60 45 L 840 45');"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Profile</h2>
+        <span class="section-num">01</span>
+      </div>
+      <div class="about-body">
+        <p>
+          I'm an ICT professional with over three years of hands-on experience designing, building and
+          maintaining digital solutions — from requirements and UI/UX through backend development,
+          database integration, deployment and ongoing support. I work comfortably across WordPress,
+          Drupal, PHP, Laravel, Python, Django, React.js and Next.js, building both content-driven
+          websites and custom business applications.
+        </p>
+        <p>
+          A large part of my work is helping businesses digitise and automate repetitive processes —
+          workflow automation, CRM systems and API integrations through platforms like n8n and Zapier,
+          working with HubSpot and Zoho to automate lead management, follow-up, data sync and
+          notifications. I've also integrated digital payments using the M-Pesa Daraja API and STK Push,
+          and increasingly apply AI and Generative AI to content, communication and process automation.
+        </p>
+        <p>
+          Alongside development work, I handle practical ICT support: computer maintenance, hardware and
+          software troubleshooting, OS installs, networking and general technical support — a background
+          that keeps me grounded in how systems actually run day to day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills &amp; stack</h2>
+        <span class="section-num">02</span>
+      </div>
+      <div class="skill-grid" style="margin-bottom:36px;">
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <p>HTML5, CSS3, JavaScript, React.js, Next.js, Tailwind CSS, responsive &amp; component-based UI</p>
+        </div>
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <p>PHP, Laravel, Python, Django — server-side logic, authentication, database integration</p>
+        </div>
+        <div class="skill-card">
+          <h3>CMS</h3>
+          <p>WordPress and Drupal — theming, plugin/module integration, site management &amp; maintenance</p>
+        </div>
+        <div class="skill-card">
+          <h3>APIs &amp; integration</h3>
+          <p>REST APIs, JSON, webhooks, authentication, third-party and system-to-system integration</p>
+        </div>
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <p>SQL, relational database design, CRUD operations, data modelling &amp; validation</p>
+        </div>
+        <div class="skill-card">
+          <h3>Tooling</h3>
+          <p>Git, GitHub, debugging, testing, local dev environments, deployment &amp; maintenance</p>
+        </div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">n8n</span>
+        <span class="chip">Zapier</span>
+        <span class="chip">HubSpot CRM</span>
+        <span class="chip">Zoho CRM</span>
+        <span class="chip">M-Pesa Daraja API</span>
+        <span class="chip">STK Push</span>
+        <span class="chip">Generative AI</span>
+        <span class="chip">Prompt Engineering</span>
+        <span class="chip">SEO</span>
+        <span class="chip">Digital Marketing</span>
+        <span class="chip">E-commerce</span>
+        <span class="chip">Networking &amp; IT Support</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTOMATION -->
+  <section id="automation">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Business automation &amp; CRM</h2>
+        <span class="section-num">03</span>
+      </div>
+      <p class="section-lede">
+        I turn repetitive business activity into workflows that run themselves — connecting websites,
+        forms, CRMs, payment systems and notifications through APIs and automation platforms. A typical
+        lead workflow I design looks like this:
+      </p>
+
+      <div class="pipeline" style="margin-bottom:40px;">
+        <div class="pipeline-step"><span class="n">01</span><span class="label">Capture</span></div>
+        <div class="pipeline-step"><span class="n">02</span><span class="label">Qualify</span></div>
+        <div class="pipeline-step"><span class="n">03</span><span class="label">Assign</span></div>
+        <div class="pipeline-step"><span class="n">04</span><span class="label">Follow up</span></div>
+        <div class="pipeline-step"><span class="n">05</span><span class="label">Update CRM</span></div>
+        <div class="pipeline-step"><span class="n">06</span><span class="label">Notify</span></div>
+        <div class="pipeline-step"><span class="n">07</span><span class="label">Track</span></div>
+        <div class="pipeline-step"><span class="n">08</span><span class="label">Report</span></div>
+      </div>
+
+      <ul class="capability-list">
+        <li>Connecting websites to CRMs and capturing leads automatically</li>
+        <li>Sending automated emails, notifications and follow-up tasks</li>
+        <li>Synchronising information between platforms via APIs and webhooks</li>
+        <li>Connecting M-Pesa and other payment flows to business systems</li>
+        <li>Building trigger-and-action workflows in n8n and Zapier</li>
+        <li>Integrating AI into automated content and data workflows</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <span class="section-num">04</span>
+      </div>
+      <div class="exp-block">
+        <div class="exp-meta">
+          <h3>Web Developer &amp; ICT / Digital Solutions Specialist</h3>
+          <div class="org">Indepth Research Services (IRES)</div>
+          <div class="dates">2023 — Present</div>
+        </div>
+        <ul class="exp-list">
+          <li>Design, develop and maintain websites and web applications using PHP, Laravel, Python, Django, React.js and Next.js.</li>
+          <li>Develop and customise WordPress and Drupal sites, including themes, plugins and content structures.</li>
+          <li>Build and integrate REST APIs and third-party services, including M-Pesa Daraja API and STK Push payments.</li>
+          <li>Build automation workflows with n8n and Zapier, connecting sites, CRMs and notification systems.</li>
+          <li>Configure and support HubSpot and Zoho CRM for lead management, follow-up and sales pipelines.</li>
+          <li>Apply AI and Generative AI to business processes, content and productivity workflows.</li>
+          <li>Support SEO and digital marketing across organisational websites, and provide ongoing ICT support — hardware troubleshooting, OS installs and networking.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected projects</h2>
+        <span class="section-num">05</span>
+      </div>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>Indepth Research Institute</h3>
+          <div class="project-role">Web Developer / ICT &amp; Digital Solutions</div>
+          <p>Ongoing development and maintenance of the organisation's web presence — structure, content management, responsive design and technical upkeep.</p>
+          <a class="project-link" href="https://indepthresearch.org" target="_blank" rel="noopener">indepthresearch.org →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Print Afrika</h3>
+          <div class="project-role">Web Developer / Digital Solutions</div>
+          <p>Business-oriented website and digital platform for a printing and branding company, built to support customer engagement and growth.</p>
+          <a class="project-link" href="https://printafrika.ke" target="_blank" rel="noopener">printafrika.ke →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Vantage Digital Agency</h3>
+          <div class="project-role">Web Developer / Digital Solutions</div>
+          <p>Development and maintenance of a digital agency's site, applying web development and digital marketing principles to its brand positioning.</p>
+          <a class="project-link" href="http://vantagedigitalagency.co.ke" target="_blank" rel="noopener">vantagedigitalagency.co.ke →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Presidential Library &amp; Archives — Kenya</h3>
+          <div class="project-role">Web Developer / Digital Platform Development</div>
+          <p>Contributed to a large content-driven public archive: historical timelines, presidential biographies, exhibitions and digital resources.</p>
+          <a class="project-link" href="https://kntsite.presidentiallibrary.go.ke" target="_blank" rel="noopener">presidentiallibrary.go.ke →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Nairobi Tech Store</h3>
+          <div class="project-role">Web Developer / E-commerce Solutions</div>
+          <p>E-commerce platform for laptops, smartphones and electronics — product catalogue, shopping flow and site administration.</p>
+          <a class="project-link" href="https://nairobitechstore.store" target="_blank" rel="noopener">nairobitechstore.store →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Apollina Healthcare</h3>
+          <div class="project-role">Web Developer / Digital Solutions</div>
+          <p>Professional online presence with responsive implementation, content presentation and SEO improvements.</p>
+          <a class="project-link" href="https://apollinahealthcare.com" target="_blank" rel="noopener">apollinahealthcare.com →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>IoT Connect Kenya</h3>
+          <div class="project-role">Web Developer / IoT &amp; Digital Solutions</div>
+          <p>Website for a smart home and IoT solutions business — service-oriented content and responsive interfaces.</p>
+          <a class="project-link" href="https://iotconnect.co.ke" target="_blank" rel="noopener">iotconnect.co.ke →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Events Afrika</h3>
+          <div class="project-role">Web Developer / Digital Platform Development</div>
+          <p>Events-focused platform with responsive design and content presentation aimed at online discovery and engagement.</p>
+          <a class="project-link" href="https://eventsafrika.co.ke" target="_blank" rel="noopener">eventsafrika.co.ke →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Pentagon Web</h3>
+          <div class="project-role">Web Developer / Digital Solutions</div>
+          <p>Custom website functionality and responsive layouts built around specific business requirements.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTHS -->
+  <section id="strengths">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How I work</h2>
+        <span class="section-num">06</span>
+      </div>
+      <div class="strength-grid">
+        <div class="strength-card">
+          <h3>Technical problem solving</h3>
+          <p>Analyse root causes and implement solutions that actually hold up in production.</p>
+        </div>
+        <div class="strength-card">
+          <h3>Business-oriented</h3>
+          <p>Technology should reduce effort and generate value, not add complexity for its own sake.</p>
+        </div>
+        <div class="strength-card">
+          <h3>Continuous learning</h3>
+          <p>Actively tracking AI, automation, modern frameworks and API-driven architecture.</p>
+        </div>
+        <div class="strength-card">
+          <h3>Automation mindset</h3>
+          <p>Looking for the repetitive step that shouldn't need a human, and removing it.</p>
+        </div>
+        <div class="strength-card">
+          <h3>Independent delivery</h3>
+          <p>Comfortable researching, building, testing and shipping without close supervision.</p>
+        </div>
+        <div class="strength-card">
+          <h3>Clear communication</h3>
+          <p>Translating technical work into language both engineers and stakeholders understand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Education</h2>
+        <span class="section-num">07</span>
+      </div>
+      <div class="edu-card">
+        <div>
+          <h3>Diploma in Information Communication Technology (ICT)</h3>
+          <div class="school">NIBS Technical College</div>
+        </div>
+        <div class="year">2023</div>
+        <ul class="edu-areas">
+          <li>Software Development</li>
+          <li>Web Development</li>
+          <li>Database Systems</li>
+          <li>Computer Systems</li>
+          <li>Networking</li>
+          <li>Information Systems</li>
+          <li>Systems Analysis</li>
+          <li>Programming</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div>
+          <h2>Let's build something.</h2>
+          <p>Open to full-stack development, automation and digital transformation work — reach out directly or connect on LinkedIn / GitHub.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:amosmuthee42@gmail.com">amosmuthee42@gmail.com</a>
+          <a href="tel:+254741964877">+254 741 964 877</a>
+          <a href="https://www.linkedin.com/in/amos-muthee-69683a360" target="_blank" rel="noopener">LinkedIn profile</a>
+          <a href="https://github.com/amosmaina" target="_blank" rel="noopener">GitHub profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Amos Maina Muthee — Nairobi, Kenya. References available on request.
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+</script>
+
+</body>
+</html>
